@@ -15,7 +15,6 @@ call plug#end()
 
 syntax on
 colorscheme onehalfdark
-
 :set bg=dark
 set termguicolors
 
@@ -40,4 +39,3 @@ set hlsearch            " highlight matches
 
 
 filetype plugin indent on
-syntax on
