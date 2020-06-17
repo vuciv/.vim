@@ -9,14 +9,13 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " Declare the list of plugins.
-Plug 'morhetz/gruvbox'
-
+Plug 'sonph/onehalf', {'rtp': 'vim/'}
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
 syntax on
-colorscheme gruvbox  " cool color scheme
-let g:gruvbox_contrast_dark = 'hard'
+colorscheme onehalfdark
+
 :set bg=dark
 set termguicolors
 
