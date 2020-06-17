@@ -1,1 +1,2 @@
+cp .vimrc ~/
 vim +PlugInstall
