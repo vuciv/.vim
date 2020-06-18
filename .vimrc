@@ -11,6 +11,7 @@ call plug#begin('~/.vim/plugged')
 " Declare the list of plugins.
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'preservim/nerdtree'
+Plug 'nathanaelkane/vim-indent-guides'
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
@@ -37,6 +38,15 @@ set showmatch       " set parens to match each other
 
 set incsearch           " search as characters are entered
 set hlsearch            " highlight matches
+
+" Automatically finish brackets and quotes
+inoremap " ""<left>
+inoremap ' ''<left>
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {}<left>
+inoremap {<CR> {<CR>}<ESC>O
+inoremap {;<CR> {<CR>};<ESC>O
 
 
 filetype plugin indent on
