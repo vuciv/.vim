@@ -48,5 +48,11 @@ inoremap { {}<left>
 inoremap {<CR> {<CR>}<ESC>O
 inoremap {;<CR> {<CR>};<ESC>O
 
+" Search all sub-folders in :find command
+set path+=**
+
+" TAGS"
+" Automatically go to definitions
+command! Tags !ctags -R .
 
 filetype plugin indent on
