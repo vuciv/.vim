@@ -1,8 +1,8 @@
 " Automatically installs vim-plug if it's not present
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-      \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 " Plugins will be downloaded under the specified directory.
@@ -21,9 +21,9 @@ colorscheme onehalfdark
 :set bg=dark
 set termguicolors
 
-set tabstop=4
-set softtabstop=4   " spaces when editing
-set shiftwidth=4
+set tabstop=2
+set softtabstop=2   " spaces when editing
+set shiftwidth=2
 set expandtab
 retab
 
@@ -56,7 +56,11 @@ set path+=**
 " Automatically go to definitions
 command! Tags !ctags -R .
 
+" Control+i auto indents everything
+nnoremap <C-i> gg=G
+
 " Lightline
 set laststatus=2
+set noshowmode
 
 filetype plugin indent on
