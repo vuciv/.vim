@@ -56,4 +56,7 @@ set path+=**
 " Automatically go to definitions
 command! Tags !ctags -R .
 
+" Lightline
+set laststatus=2
+
 filetype plugin indent on
