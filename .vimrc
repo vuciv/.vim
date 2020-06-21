@@ -12,6 +12,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'preservim/nerdtree'
 Plug 'nathanaelkane/vim-indent-guides'
+Plug 'itchyny/lightline.vim'
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
