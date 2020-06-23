@@ -5,7 +5,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-" Plugins will be downloaded under the specified directory.
+" Plugs will be downloaded under the specified directory.
 call plug#begin('~/.vim/plugged')
 
 " Declare the list of plugins.
@@ -13,7 +13,14 @@ Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'preservim/nerdtree'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'itchyny/lightline.vim'
-" List ends here. Plugins become visible to Vim after this call.
+
+" Snippets"
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'garbas/vim-snipmate'
+
+Plug 'honza/vim-snippets'
+" List ends here. Plugs become visible to Vim after this call.
 call plug#end()
 
 syntax on
@@ -49,6 +56,8 @@ inoremap { {}<left>
 inoremap {<CR> {<CR>}<ESC>O
 inoremap {;<CR> {<CR>};<ESC>O
 
+" snippetAutomatically complete for loops in different languages
+
 " Search all sub-folders in :find command
 set path+=**
 
@@ -58,6 +67,15 @@ command! Tags !ctags -R .
 
 " Control+i auto indents everything
 nnoremap <C-i> gg=G
+
+" map to vertical split
+nnoremap <C-Right> <C-w>v
+nnoremap <C-Down> <C-w>S
+nnoremap <C-Up> <C-w>o
+nnoremap <Right> <C-w><Right>
+nnoremap <Left> <C-w><Left>
+nnoremap <Up> <C-w><Up>
+nnoremap <Down> <C-w><Down>
 
 " Lightline
 set laststatus=2
