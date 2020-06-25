@@ -18,6 +18,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
 Plug 'garbas/vim-snipmate'
+Plug 'jfonseca8/vim-bujo'
 
 Plug 'honza/vim-snippets'
 " List ends here. Plugs become visible to Vim after this call.

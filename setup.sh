@@ -1,2 +1,2 @@
 cp .vimrc ~/
-vim +PlugInstall
+vim +PlugInstall +qa
