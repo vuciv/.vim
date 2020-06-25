@@ -13,7 +13,6 @@ Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'preservim/nerdtree'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'itchyny/lightline.vim'
-
 " Snippets"
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
@@ -84,6 +83,11 @@ imap <C-Enter> <Plug>BujoAddinsert
 nmap <C-BS> <Plug>BujoChecknormal
 imap <C-BS> <Plug>BujoCheckinsert
  
+" save and quit
+nmap <C-S> :w<Enter>
+imap <C-S> <esc>:w<Enter>a
+nmap <C-Q> :q<Enter> 
+imap <C-Q> <esc>:q<Enter> 
 
 " Lightline
 set laststatus=2
