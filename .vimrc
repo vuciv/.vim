@@ -18,7 +18,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
 Plug 'garbas/vim-snipmate'
-Plug 'jfonseca8/vim-bujo'
+Plug 'vuciv/vim-bujo'
 
 Plug 'honza/vim-snippets'
 " List ends here. Plugs become visible to Vim after this call.
@@ -77,6 +77,13 @@ nnoremap <Right> <C-w><Right>
 nnoremap <Left> <C-w><Left>
 nnoremap <Up> <C-w><Up>
 nnoremap <Down> <C-w><Down>
+
+" Bujo commands
+nmap <C-Enter> <Plug>BujoAddnormal
+imap <C-Enter> <Plug>BujoAddinsert
+nmap <C-BS> <Plug>BujoChecknormal
+imap <C-BS> <Plug>BujoCheckinsert
+ 
 
 " Lightline
 set laststatus=2
