@@ -1,51 +1,61 @@
-" Automatically installs vim-plug if it's not present
+" =============== MAKE DIRECTORY =============== "
+
+
+
+" =============== PLUGINS =============== "
+
+" Make plugin directory if it's not there
 if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+  silent !curl -flo ~/.vim/autoload/plug.vim --create-dirs
         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+  autocmd vimenter * pluginstall --sync | source $myvimrc
 endif
 
-" Plugs will be downloaded under the specified directory.
+
+" Install plugins
 call plug#begin('~/.vim/plugged')
-
-" Declare the list of plugins.
-Plug 'sonph/onehalf', {'rtp': 'vim/'}
-Plug 'preservim/nerdtree'
-Plug 'nathanaelkane/vim-indent-guides'
-Plug 'itchyny/lightline.vim'
-" Snippets"
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'tomtom/tlib_vim'
-Plug 'garbas/vim-snipmate'
-Plug 'vuciv/vim-bujo'
-
-Plug 'honza/vim-snippets'
-" List ends here. Plugs become visible to Vim after this call.
+Plug 'preservim/nerdtree'         " Show file directory
+Plug 'itchyny/lightline.vim'      " Light vim line
+Plug 'vuciv/vim-bujo'             " Task manager
 call plug#end()
 
-syntax on
-colorscheme onehalfdark
-:set bg=dark
-set termguicolors
 
+" =============== GENERAL =============== "
+
+set number                 " see numberlines
+set showcmd                " see last command
+filetype plugin indent on  " spec indent files, filetype tracking
+set showmatch              " set parens to match each other
+set incsearch              " search as characters are entered
+
+" tab config
 set tabstop=2
-set softtabstop=2   " spaces when editing
+set softtabstop=2   
 set shiftwidth=2
 set expandtab
 retab
 
-set number          " see numberlines
 
-set showcmd         " see last command
+" =============== COLORSCHEME =============== "
 
-set cursorline      " see cursorline
+syntax on
+colorscheme deep-space 
+:set bg=dark
+set termguicolors
 
-filetype indent on  " spec indent files, filetype tracking
 
-set showmatch       " set parens to match each other
+" =============== MISCELLANEOUS =============== "
 
-set incsearch           " search as characters are entered
-set hlsearch            " highlight matches
+nnoremap $ gg=G           " auto indent
+nnoremap 9 <End>          " go to end of line
+nnoremap d9 d$            " delete to end of line
+
+command! Tags !ctags -R . " create tags
+set path+=**              " search all subfolders
+
+" highlight text over 80 characters as red
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/
 
 " Automatically finish brackets and quotes
 inoremap " ""<left>
@@ -56,41 +66,35 @@ inoremap { {}<left>
 inoremap {<CR> {<CR>}<ESC>O
 inoremap {;<CR> {<CR>};<ESC>O
 
-" snippetAutomatically complete for loops in different languages
 
-" Search all sub-folders in :find command
-set path+=**
+" =============== WINDOW MAPPINGS =============== "
 
-" TAGS"
-" Automatically go to definitions
-command! Tags !ctags -R .
+nnoremap <C-Right> <C-w>v<C-w><Right> " Open & go to vert window
+nnoremap <C-Down> <C-w>S<C-w><Down>   " Open & go to horiz window
+nnoremap <C-Up> <C-w>o                " Close all windows except current
+nnoremap <Right> <C-w><Right>         " Go to right window
+nnoremap <Left> <C-w><Left>           " Go to up window
+nnoremap <Up> <C-w><Up>               " Go to left window
+nnoremap <Down> <C-w><Down>           " Go to down window
 
-" Control+i auto indents everything
-nnoremap <C-i> gg=G
 
-" map to vertical split
-nnoremap <C-Right> <C-w>v
-nnoremap <C-Down> <C-w>S
-nnoremap <C-Up> <C-w>o
-nnoremap <Right> <C-w><Right>
-nnoremap <Left> <C-w><Left>
-nnoremap <Up> <C-w><Up>
-nnoremap <Down> <C-w><Down>
+" =============== BUJO COMMANDS =============== "
 
-" Bujo commands
 nmap <C-Enter> <Plug>BujoAddnormal
 imap <C-Enter> <Plug>BujoAddinsert
 nmap <C-BS> <Plug>BujoChecknormal
 imap <C-BS> <Plug>BujoCheckinsert
- 
-" save and quit
+
+
+" =============== SAVE/QUIT =============== "
+
 nmap <C-S> :w<Enter>
 imap <C-S> <esc>:w<Enter>a
 nmap <C-Q> :q<Enter> 
 imap <C-Q> <esc>:q<Enter> 
 
-" Lightline
+
+" =============== LIGHTLINE =============== "
+
 set laststatus=2
 set noshowmode
-
-filetype plugin indent on
