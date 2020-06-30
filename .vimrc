@@ -1,5 +1,5 @@
-" =============== MAKE DIRECTORY =============== "
-
+" Jersey Fonseca's vimrc
+" Last updated: June 30, 2020
 
 
 " =============== PLUGINS =============== "
@@ -46,9 +46,11 @@ set termguicolors
 
 " =============== MISCELLANEOUS =============== "
 
-nnoremap $ gg=G           " auto indent
-nnoremap 9 <End>          " go to end of line
-nnoremap d9 d$            " delete to end of line
+" auto-indent
+nnoremap 1 gg=G
+
+" go to end of line
+nnoremap 9 <End>
 
 command! Tags !ctags -R . " create tags
 set path+=**              " search all subfolders
