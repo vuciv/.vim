@@ -17,6 +17,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'preservim/nerdtree'               " Show file directory
 Plug 'itchyny/lightline.vim'            " Light vim line
 Plug 'vuciv/vim-bujo'                   " Task manager
+Plug 'morhetz/gruvbox'                  " Color scheme
 call plug#end()
 
 
@@ -40,7 +41,8 @@ retab
 
 syntax enable
 set background=dark
-colorscheme solarized 
+colorscheme gruvbox 
+
 
 " =============== MISCELLANEOUS =============== "
 
