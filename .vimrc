@@ -14,9 +14,9 @@ endif
 
 " Install plugins
 call plug#begin('~/.vim/plugged')
-Plug 'preservim/nerdtree'         " Show file directory
-Plug 'itchyny/lightline.vim'      " Light vim line
-Plug 'vuciv/vim-bujo'             " Task manager
+Plug 'preservim/nerdtree'               " Show file directory
+Plug 'itchyny/lightline.vim'            " Light vim line
+Plug 'vuciv/vim-bujo'                   " Task manager
 call plug#end()
 
 
@@ -38,11 +38,9 @@ retab
 
 " =============== COLORSCHEME =============== "
 
-syntax on
-colorscheme deep-space 
-:set bg=dark
-set termguicolors
-
+syntax enable
+set background=dark
+colorscheme solarized 
 
 " =============== MISCELLANEOUS =============== "
 
@@ -50,7 +48,10 @@ set termguicolors
 nnoremap 1 gg=G
 
 " go to end of line
-nnoremap 9 <End>
+nnoremap > <End>
+
+" go to start of line
+nnoremap < 0
 
 command! Tags !ctags -R . " create tags
 set path+=**              " search all subfolders
@@ -100,3 +101,4 @@ imap <C-Q> <esc>:q<Enter>
 
 set laststatus=2
 set noshowmode
+let g:lightline = {'colorscheme' : 'solarized'}
