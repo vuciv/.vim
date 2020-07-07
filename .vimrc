@@ -47,15 +47,6 @@ colorscheme gruvbox
 
 " =============== MISCELLANEOUS =============== "
 
-" auto-indent
-nnoremap 1 gg=G
-
-" go to end of line
-nnoremap > <End>
-
-" go to start of line
-nnoremap < 0
-
 command! Tags !ctags -R . " create tags
 set path+=**              " search all subfolders
 
@@ -115,3 +106,19 @@ let g:vimwiki_list = [{
   \ 'path_html': '$HOME/vimwiki/site',
   \ 'path': '$HOME/vimwiki/content',
   \}]
+
+
+" =============== COMMENTING =============== "
+
+" Automatically generate function header "
+function FileHeading()
+  let s:line=line(".")
+  call setline(s:line,"/* Function - ")
+  call append(s:line," *")
+  call append(s:line+1," * Purpose - ")
+  call append(s:line+2," */")
+  unlet s:line
+endfunction
+
+imap <silent> <F2> <Esc>mz:execute FileHeading()<CR>`zA
+nmap <silent> <F2> mz:execute FileHeading()<CR>`zA
