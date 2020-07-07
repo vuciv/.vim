@@ -14,10 +14,11 @@ endif
 
 " Install plugins
 call plug#begin('~/.vim/plugged')
-Plug 'preservim/nerdtree'               " Show file directory
-Plug 'itchyny/lightline.vim'            " Light vim line
-Plug 'vuciv/vim-bujo'                   " Task manager
-Plug 'morhetz/gruvbox'                  " Color scheme
+Plug 'preservim/nerdtree'               " show file directory
+Plug 'itchyny/lightline.vim'            " light vim line
+Plug 'vuciv/vim-bujo'                   " task manager
+Plug 'morhetz/gruvbox'                  " color scheme
+Plug 'vimwiki/vimwiki'                  " personal wiki
 call plug#end()
 
 
@@ -104,3 +105,13 @@ imap <C-Q> <esc>:q<Enter>
 set laststatus=2
 set noshowmode
 let g:lightline = {'colorscheme' : 'solarized'}
+
+
+" =============== VIMWIKI =============== "
+
+let g:vimwiki_list = [{
+  \ 'auto_export': 1,
+  \ 'automatic_nested_syntaxes':1,
+  \ 'path_html': '$HOME/vimwiki/site',
+  \ 'path': '$HOME/vimwiki/content',
+  \}]
