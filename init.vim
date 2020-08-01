@@ -1,20 +1,8 @@
 " Jersey Fonseca's vimrc
 " Last updated: June 30, 2020
 
-
-" =============== PLUGINS =============== "
-
-" Make plugin directory if it's not there
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -flo ~/.vim/autoload/plug.vim --create-dirs
-        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd vimenter * pluginstall --sync | source $myvimrc
-endif
-
-
 " Install plugins
 call plug#begin('~/.vim/plugged')
-Plug 'preservim/nerdtree'               " show file directory
 Plug 'itchyny/lightline.vim'            " light vim line
 Plug 'vuciv/vim-bujo'                   " task manager
 Plug 'morhetz/gruvbox'                  " color scheme
@@ -24,7 +12,7 @@ call plug#end()
 
 " =============== GENERAL =============== "
 
-set number                 " see numberlines
+set number relativenumber  " see numbers, relative
 set showcmd                " see last command
 filetype plugin indent on  " spec indent files, filetype tracking
 set showmatch              " set parens to match each other
@@ -32,7 +20,7 @@ set incsearch              " search as characters are entered
 
 " tab config
 set tabstop=2
-set softtabstop=2   
+set softtabstop=2
 set shiftwidth=2
 set expandtab
 retab
@@ -41,8 +29,8 @@ retab
 " =============== COLORSCHEME =============== "
 
 syntax enable
-set background=dark
-colorscheme gruvbox 
+colorscheme cyberpunkneon 
+hi Normal guibg=NONE ctermbg=NONE
 
 
 " =============== MISCELLANEOUS =============== "
@@ -53,16 +41,6 @@ set path+=**              " search all subfolders
 " highlight text over 80 characters as red
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
-
-" Automatically finish brackets and quotes
-inoremap " ""<left>
-inoremap ' ''<left>
-inoremap ( ()<left>
-inoremap [ []<left>
-inoremap { {}<left>
-inoremap {<CR> {<CR>}<ESC>O
-inoremap {;<CR> {<CR>};<ESC>O
-
 
 " =============== WINDOW MAPPINGS =============== "
 
@@ -86,9 +64,9 @@ imap <C-BS> <Plug>BujoCheckinsert
 " =============== SAVE/QUIT =============== "
 
 nmap <C-S> :w<Enter>
-imap <C-S> <esc>:w<Enter>a
-nmap <C-Q> :q<Enter> 
-imap <C-Q> <esc>:q<Enter> 
+imap <C-S> <esc>:w<Enter>
+nmap <C-Q> :q<Enter>
+imap <C-Q> <esc>:q<Enter>
 
 
 " =============== LIGHTLINE =============== "
@@ -108,17 +86,3 @@ let g:vimwiki_list = [{
   \}]
 
 
-" =============== COMMENTING =============== "
-
-" Automatically generate function header "
-function FileHeading()
-  let s:line=line(".")
-  call setline(s:line,"/* Function - ")
-  call append(s:line," *")
-  call append(s:line+1," * Purpose - ")
-  call append(s:line+2," */")
-  unlet s:line
-endfunction
-
-imap <silent> <F2> <Esc>mz:execute FileHeading()<CR>`zA
-nmap <silent> <F2> mz:execute FileHeading()<CR>`zA
