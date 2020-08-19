@@ -1,5 +1,5 @@
 " Jersey Fonseca's vimrc
-" Last updated: June 30, 2020
+" Last updated: August 10th, 2020
 
 " Install plugins
 call plug#begin('~/.vim/plugged')
@@ -38,10 +38,6 @@ hi Normal guibg=NONE ctermbg=NONE
 command! Tags !ctags -R . " create tags
 set path+=**              " search all subfolders
 
-" highlight text over 80 characters as red
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%81v.\+/
-
 " =============== WINDOW MAPPINGS =============== "
 
 nnoremap <C-Right> <C-w>v<C-w><Right> " Open & go to vert window
@@ -55,10 +51,10 @@ nnoremap <Down> <C-w><Down>           " Go to down window
 
 " =============== BUJO COMMANDS =============== "
 
-nmap <C-Enter> <Plug>BujoAddnormal
-imap <C-Enter> <Plug>BujoAddinsert
-nmap <C-BS> <Plug>BujoChecknormal
-imap <C-BS> <Plug>BujoCheckinsert
+nmap <F1> <Plug>BujoAddnormal
+imap <F1> <Plug>BujoAddinsert
+nmap <F2> <Plug>BujoChecknormal
+imap <F2> <Plug>BujoCheckinsert
 
 
 " =============== SAVE/QUIT =============== "
