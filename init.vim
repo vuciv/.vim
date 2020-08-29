@@ -7,6 +7,7 @@ Plug 'itchyny/lightline.vim'            " light vim line
 Plug 'vuciv/vim-bujo'                   " task manager
 Plug 'morhetz/gruvbox'                  " color scheme
 Plug 'vimwiki/vimwiki'                  " personal wiki
+Plug 'ianding1/leetcode.vim'            " leetcode in vim
 call plug#end()
 
 
@@ -82,3 +83,7 @@ let g:vimwiki_list = [{
   \}]
 
 
+" =============== LEETCODE =============== "
+
+let g:leetcode_solution_filetype='python3'
+let g:leetcode_browser='firefox'
